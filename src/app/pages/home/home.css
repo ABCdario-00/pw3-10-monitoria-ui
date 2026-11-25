@@ -49,3 +49,11 @@ button:disabled {
 .excluir {
   background: #a83232;
 }
+
+.situacao {
+  color: #166534;
+}
+
+.encerrada {
+  color: #99321b;
+}

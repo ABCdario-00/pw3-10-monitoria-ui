@@ -39,7 +39,9 @@ export class Home implements OnInit {
   inscrever(id: number): void {
     this.service.inscreverAluno(id).subscribe({
       next: () => this.carregar(),
-      error: () => alert('Não foi possível realizar a inscrição.')
+      error: (resposta) => alert(
+        resposta.error?.detail ?? 'Não foi possível realizar a inscrição.'
+      )
     });
   }
 

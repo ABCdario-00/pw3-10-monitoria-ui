@@ -10,7 +10,7 @@ import {
   providedIn: 'root'
 })
 export class MonitoriaService {
-  private apiUrl = '/api/monitorias';
+  private apiUrl = 'http://localhost:8080/api/monitorias';
   private http = inject(HttpClient);
 
   listar(): Observable<VagaMonitoria[]> {

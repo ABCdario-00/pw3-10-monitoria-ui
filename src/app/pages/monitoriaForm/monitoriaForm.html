@@ -10,16 +10,25 @@
     <p>
       <label for="disciplina">Disciplina</label><br>
       <input id="disciplina" formControlName="disciplina" maxlength="50">
+      @if (formulario.controls.disciplina.touched && formulario.controls.disciplina.invalid) {
+        <br><small>Informe a disciplina.</small>
+      }
     </p>
 
     <p>
       <label for="nomeMonitor">Nome do monitor</label><br>
       <input id="nomeMonitor" formControlName="nomeMonitor" maxlength="100">
+      @if (formulario.controls.nomeMonitor.touched && formulario.controls.nomeMonitor.invalid) {
+        <br><small>Informe o nome do monitor.</small>
+      }
     </p>
 
     <p>
       <label for="vagasTotais">Total de vagas</label><br>
       <input id="vagasTotais" type="number" formControlName="vagasTotais" min="1">
+      @if (formulario.controls.vagasTotais.touched && formulario.controls.vagasTotais.invalid) {
+        <br><small>Informe pelo menos uma vaga.</small>
+      }
     </p>
 
     <button type="submit" [disabled]="salvando()">Salvar</button>

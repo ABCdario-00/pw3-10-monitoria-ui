@@ -36,7 +36,11 @@
         <td>
           {{ monitoria.vagasOcupadas }} / {{ monitoria.vagasTotais }}
         </td>
-        <td>{{ monitoria.aberta ? 'Aberta' : 'Encerrada' }}</td>
+        <td>
+          <strong class="situacao" [class.encerrada]="!monitoria.aberta">
+            {{ monitoria.aberta ? 'Aberta' : 'Encerrada' }}
+          </strong>
+        </td>
         <td>
           <a [routerLink]="['/monitorias/editar', monitoria.id]">Editar</a>
 

@@ -49,6 +49,7 @@ export class MonitoriaForm implements OnInit {
       return;
     }
 
+    this.formulario.markAllAsTouched();
     const valores = this.formulario.getRawValue();
     const disciplina = (valores.disciplina ?? '').trim();
     const nomeMonitor = (valores.nomeMonitor ?? '').trim();
@@ -74,9 +75,11 @@ export class MonitoriaForm implements OnInit {
         alert('Monitoria salva com sucesso!');
         this.router.navigate(['/inicio']);
       },
-      error: () => {
+      error: (resposta) => {
         this.salvando.set(false);
-        this.mensagem.set('Não foi possível salvar a monitoria.');
+        this.mensagem.set(
+          resposta.error?.detail ?? 'Não foi possível salvar a monitoria.'
+        );
       }
     });
   }
